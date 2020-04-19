@@ -1,0 +1,2 @@
+[database]
+connection_string = "root:12345@tcp(dbmysql:3306)/productdb?charset=utf8&parseTime=True&loc=Local"

@@ -1,0 +1,24 @@
+version: "3"
+services:
+  product:
+    image: product
+    command: /product
+    ports:
+      - "8080:8080"
+    volumes: 
+      - "${PWD}/config.toml:/config.toml"
+    depends_on: 
+      - dbmysql
+
+  dbmysql:
+    container_name: dbmysql
+    image: mysql
+    volumes: 
+      - "./data:/var/lib/mysql"
+    restart: always
+    environment: 
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=productdb      
+    ports:
+      - "3306:3306"
+      
